@@ -1,0 +1,334 @@
+@media(max-width: 767px){
+.navbar-static-top {
+    padding-right:10px;
+    padding-left: 20px;
+}
+.menu-login{
+    margin-right: 30px;
+}
+#login{margin-top: 0px;}
+    .tela-media h1{
+        font-size: 26px;
+        text-align: center;
+    }
+    .tela-media p{
+        font-size: 16px;
+        text-align: justify;
+    }
+
+}
+@media(min-width: 768px){
+
+.container .jumbotron{
+    padding: 10px 10px 0 10px;
+}
+    .tela-media h1{
+        text-align: center;
+    }
+        .tela-media p{
+        font-size: 16px;
+        text-align: justify;
+        margin-bottom: 0px;
+    }
+}
+#media-avaliacao{
+    font-weight: 700;
+}
+hr{padding: 5px 0 5px 0;}
+.select-date{
+    padding-top: 6px;
+}
+#error-180 p{
+    padding: 30px 20px 10px 20px;
+    border-top: 1px solid #e5e5e5;
+}
+tr:hover, tr.alt:hover {
+    color: #261F1D;
+    background-color: #E5C37E;
+}
+
+.jumbotron.tela-media.content{
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+}
+.jumbotron.tela-media.main{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.tela-media h1{
+        font-size: 40px;
+        padding: 20px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+.highlighted {
+    color: #261F1D;
+    background-color: #E5C37E;
+}
+.fechar{
+    margin-bottom: 30px;
+}
+#descricao textarea{width: 100%;}
+
+.resposta{
+   background-color: #FFFFFF;
+}
+.resposta.resposta-show{
+    display: block;
+}
+.pergunta{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+.background-icon{
+    position: absolute;
+    right: 15px;
+    top: 40%;
+}
+.background-icon.background-icon-new{
+/*    background-image: url(../img/down.png);
+    background-repeat: no-repeat;
+
+    background-position: 98% 48%;*/
+    transform: rotate(180deg);
+/*    background-image: url(../img/up.png);
+    background-repeat: no-repeat;
+    background-position: 98% 50%;*/
+}
+.pergunta-content{
+    padding: 22px 22px 22px 22px;
+    border-bottom: 1px solid #d8d8d8;
+    position: relative;
+}
+.tela-media-container{margin-bottom: 80px;}
+.tela-media-container .tela-media{padding: 10px; background-color: #eee;}
+.tela-media h2{
+    margin-bottom:20px;
+}
+.tela-media h3{
+    padding: 20px 10px;
+}
+.tela-media p{
+    padding: 10px;
+}
+.resposta{
+    background-color: #FFFFFF;
+    background: linear-gradient( #f1f1f1 2%, white 10%,white 90%,#f1f1f1 98%);
+    font-size: 13px;
+    padding: 22px 22px 22px 22px;
+    margin-bottom: 0px;
+}
+#fechar-duvidas{
+    margin-top: 20px;
+}
+ a:hover {
+    text-decoration: none;
+  }
+#login{margin-top: 50px;}
+#login-failed .jumbotron{
+    margin-bottom: 0px;
+}
+#btn-aviso{margin-top: 20px;}
+
+#realizar-auto-avaliacao h4{margin-bottom: 50px;}
+.avaliacoes{
+    width:80%;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+.radio-inline{display: inline;}
+#alt-id-setor,#alt-id-cargo,#id-setor
+{visibility: hidden}
+#id-logado{
+    display: none;
+}
+#cpf-logado{
+    display: none;
+}
+#perfil-logado{
+    display: none;
+}
+.logar{
+    color: #faa61a;
+    margin-right: 6px;
+}
+.welcome{
+    font-size: 12px;
+}
+.nav>li>a{
+    padding:10px 10px;
+}
+.modal-header h4{text-align: center;}
+.navbar-nav{
+    margin-top: 15px;
+}
+.container>.navbar-header {
+padding-top: 10px;
+}
+.menu-login{
+    position: relative;
+}
+.avaliacoes-disponiveis{
+    position: absolute;
+    border-radius: 50%;
+    padding: 0px 10px 2px 5px;
+    width: 5px;
+    height: 17px;
+    z-index: 2;
+    top: 13px;
+    text-align: left;
+    right: -10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #faa61a;
+}
+.avaliacoes-disponiveis:hover{
+    background-color: #faa61a;
+    border: 2px solid #fff;
+    color: #fff;
+}
+.dropdown-menu{
+    padding:0;
+}
+.dropdown-menu .sub-menu > a{
+    padding: 10px 20px;
+}
+.dropdown-menu li.sub-menu :hover{
+    background-color: #9d9d9d;
+}
+.dropdown-menu .divider{
+    margin: 0;
+}
+.navbar-inverse .navbar-nav .open>a:hover{
+    background: none;
+}
+.navbar-inverse .navbar-nav>.active>a{
+    background: #080808;
+    border-radius: 2px;
+};
+/*
+    slider
+*/
+.slider{
+    /*border: 2px solid gray;*/
+    width: 100%;
+}
+.slides{
+    border:  15px solid #eee; 
+    border-radius: 5px; 
+    width:  515px; 
+    height: 315px; 
+    float: left;
+    background-color: #ccc;
+}
+.slides img {   
+    background-color: #ccc;  
+    width:  485px; 
+    height: 285px; 
+    cursor: pointer;    
+} 
+.slider-content{
+    width: 630px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+.left{
+    background: url("../img/arrow.png");
+    background-size: 50px 50px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    transform: rotateY(180deg);
+    width: 50px;
+    height: 300px;
+    float: left;
+    cursor: pointer;
+}
+.right{
+    background: url("../img/arrow.png");
+    background-size: 50px 50px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 300px;
+    float: left;
+    cursor: pointer;
+}
+#consultar-avaliacoes-setor{
+    display: none;
+}
+.modal-body h4{
+    padding: 20px 10px 50px 10px;
+    font-weight: 700;
+}
+.jumbotron.tela-media.duvidas-content{
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.jumbotron.tela-media.duvidas-content h2{
+    padding: 20px;
+    margin: 0;
+}
+.to-top{
+    background: url("../img/up.png");
+    background-size: 30px 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 35px;
+    border: none;
+    background-color: transparent;
+    transform: scale(1);
+}
+.to-top:hover{
+    transform: scale(1.2);
+}
+.about{
+    background-image: url("../img/info.png");
+    background-size: 35px 35px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border:none;
+    background-color: transparent;
+    transform: scale(1);
+    outline:none;
+}
+.about:hover{
+    transform: scale(1.2);
+    border:none;
+}
+a.about:focus{
+    outline:none;
+}
+th{text-align: center;}
+.control-label.t-ava{
+    padding-top: 0px;
+    text-align: left; 
+    padding-left: 10px;
+    margin: 10px 0;
+}
+.col-sm-8>label.radio-inline{padding: 7px 20px 0 20px;}
+#ativo-colaborador{
+    padding-top: 7px;
+}
+#perfil-colaborador{
+    padding-top: 7px;
+}
+.container>.navbar-header{padding:0;}
+.navbar-brand{padding:0;}
+.navbar-brand img{
+    width: 80px;
+    height:50px;
+}
+.modal-footer > label{display: block;text-align: left;}
+/*#consulta-data-avaliacao{display: block;}
+#consulta-data-avaliacao-realizada{display: block;}*/
+.container{padding: 0;}
+.cancelar-avaliacao.fechar{margin-bottom: 0;}
+#begin{width: 49%;}
+#end{width: 49%;}

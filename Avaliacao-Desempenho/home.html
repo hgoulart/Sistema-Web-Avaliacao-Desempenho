@@ -1,0 +1,1135 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avaliação de Desempenho - Sander Info</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/cycle.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/estilo.css" rel="stylesheet">
+    <script src="js/myScript.js"></script>
+</head>
+<body onload="UsuarioLogado()">
+
+    <header class="navbar navbar-inverse navbar-static-top">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="home.html" class="navbar-brand"><img src="img/seu-logo.png" alt="Avaliação de Desempenho logo" title="Avaliação de Desempenho" class="img-responsive"></a>
+            </div>
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown active"><a href="home.html" id="refresh"><span class="glyphicon glyphicon-home"></span> Início</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="cadastro" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Cadastro <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="sub-menu"><a href="#cadastrar-setor" data-toggle="modal"> Setor</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#cad-funcao" id="show-cad-funcao" data-toggle="modal"> Cargo</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#cadastrar-usuario" data-toggle="modal" id="cadastrar-colaborador">Colaborador</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#cadastrar-criterio" data-toggle="modal">Critérios</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" id="consultas" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-search"></span> Consulta <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="sub-menu"><a href="#" id="consulta-setor">Setor</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" onclick="ConsultaFuncao()">Cargo</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" onclick="ConsultaUsuario()">Colaborador</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" onclick="ConsultaCriterios()">Critérios</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" id="consultar-avaliacao-individual"> Avaliação Individual</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" id="carregar-avaliacoes-acumuladas"> Avaliações Acumuladas</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" id="gerar-avaliacao" class="dropdown-toggle " data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-exclamation-sign"></span> Nova Avaliação <span class="caret"></span></a>
+                        <ul class="dropdown-menu ">
+                            <li class="sub-menu"><a href="#nova-auto-avaliacao" data-toggle="modal" id="carrega-auto-avaliacao">Auto Avaliação</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#nova-avaliacao-90" data-toggle="modal" id="carrega-avaliacao-90">90 Graus</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#nova-avaliacao-180" data-toggle="modal" id="carrega-avaliacao-180">180 Graus</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#nova-avaliacao-360" data-toggle="modal" id="carrega-avaliacao-360">360 Graus</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-exclamation-sign"></span> Realizar Avaliação <span class="caret"></span></a>
+                        <ul class="dropdown-menu ">
+                            <li class="sub-menu"><a href="#" data-toggle="modal" data-id="1" class="load-avaliacao">Auto Avaliação</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" data-toggle="modal" data-id="2" class="load-avaliacao">90 Graus</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" data-toggle="modal" data-id="3" class="load-avaliacao">180 Graus</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" data-toggle="modal" data-id="4" class="load-avaliacao">360 Graus</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-exclamation-sign"></span> Ajuda <span class="caret"></span></a>
+                        <ul class="dropdown-menu ">
+                            <li class="sub-menu"><a href="duvidas.html" target="_blank" id="duvidas">Dúvidas</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="duvidas.html" target="_blank" id="duvidas">Contato</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown menu-login">
+                        <button class="btn btn-default avaliacoes-disponiveis" title="">3</button>
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button">
+                            <span class="welcome">Bem Vindo(a)</span> <span class="logar" id="logado"></span>
+                        </a>
+                        <span id="id-logado"></span>
+                        <span id="cpf-logado"></span>
+                        <span id="perfil-logado"></span>
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li class="sub-menu"><a href="#trocar-senha" data-toggle="modal">Trocar Senha</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="sub-menu"><a href="#" id="encerrar">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!--     <div class="row">
+                <section class="jumbotron tela-media main col-md-12">
+                    <section class="container slider-principal">
+                        <section class="slider">
+                            <div class="slider-content clearfix">
+                                <div class="left"></div>
+                                    <div class="slides">
+                                        <img src="img/maslow.jpg" data-id="maslow.jpg" title="Pirâmide de Maslow" />
+                                        <img src="img/5s.jpg" data-id="5s.jpg" title="5S" />
+                                        <img src="img/gestao.jpg" data-id="gestao.jpg" title="Gestão" />
+                                        <img src="img/business.jpg" data-id="gestao.jpg" title="Gestão" />
+                                        <img src="img/online-business.jpg" data-id="gestao.jpg" title="Gestão" />
+                                    </div>
+                                <div class="right"></div>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </div> -->
+
+        <section class="row">
+            <article class="jumbotron tela-media content col-md-12 ">
+                <h1 class="text-center">Sistema de Avaliação de Desempenho</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit</p>
+
+            </article>
+        </section>
+        <section class="row tela-media-container">
+            <article class="tela-media col-md-4">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, </p>
+            </article>
+            <article class="tela-media col-md-4">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! </p>
+            </article>
+            <article class="tela-media col-md-4">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut saepe dolore, perferendis id quis quia modi voluptatum, numquam! Atque dolorum eligendi odio, quam architecto quae fuga officia voluptates recusandae impedit</p>
+            </article>
+        </section>
+    </div>
+    </div>
+    <div class="container tabelas">
+        <section class="jumbotron ">
+
+            <div class="panel panel-default table-responsive" id="tabela">
+
+                <div class="panel-heading "><span id="span-consulta">Consulta</span></div>
+
+                <table id="cadastro-data" class="table table-bordered cadastro"></table>
+
+                <table id="consulta-data" class="table table-bordered cadastro"></table>
+            </div>
+            <button type="button" class="btn btn-primary fechar">Fechar</button>
+        </section>
+    </div>
+    <div>
+        <section class="modal fade in" data-backdrop="static" data-keyboard="false" id="cadastrar-usuario" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Cadastro de Colaborador</h4>
+                        <div class="modal-body">
+
+                            <form class="form-horizontal" method="post">
+                                <div class="form-group ">
+                                    <label for="cad-nome" class="col-sm-2 control-label ">Nome</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control " id="cad-nome" placeholder="Nome Completo" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cad-cpf" class="col-sm-2 control-label">CPF</label>
+                                    <div class="col-sm-10">
+                                        <input type="tel" class="form-control" id="cad-cpf" placeholder="CPF">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cad-email" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="cad-email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cad-tel" class="col-sm-2 control-label">Telefone</label>
+                                    <div class="col-sm-10">
+                                        <input type="tel" class="form-control" id="cad-tel" placeholder="Telefone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="selecionar-setor" class="col-sm-2 control-label">Setor</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="selecionar-setor"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="selecionar-funcao" class="col-sm-2 control-label">Cargo</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control" id="selecionar-funcao">
+
+                                            <option disabled></option>
+
+                                        </select>
+                                    </div>
+                                    <label for="selecionar-perfil" class="col-sm-1 control-label">Perfil</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="selecionar-perfil">
+
+                                            <option disabled></option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cad-senha" class="col-sm-2 control-label">Senha</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="cad-senha" placeholder="Defina uma senha">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="check-senha" class="col-sm-2 control-label">Senha</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="check-senha" placeholder="Coloque a senha novamente">
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-success" id="btn-salvar-colaborador" data-dismiss="modal">Confirmar</button>
+
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="cad-funcao" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Cadastro de Cargo</h4>
+                        <div class="modal-body">
+
+                            <div class="form-group row">
+                                <label for="nome_funcao" class="col-sm-2 control-label">Cargo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control " id="nome_funcao" placeholder="Nome do Cargo" autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label for="setor" class="col-sm-2 control-label">Setor</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="recebe-setor">
+                                        <option>Selecione uma opção</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="descricao-funcao" class="col-sm-2 control-label">Descrição</label>
+                                <div class="col-sm-10">
+                                    <textarea id="descricao_funcao" class='form-control' rows='3' placeholder="Descrição do Cargo"></textarea>
+                                </div>
+                            </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" data-dismiss="modal" class="btn btn-success" id="btn-cad-funcao">Confirmar</button>
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="cadastrar-setor" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Cadastro de Setor</h4>
+                        <div class="modal-body">
+
+                            <form class="form-horizontal">
+                                <div class="form-group ">
+                                    <label for="nome_setor" class="col-sm-2 control-label">Setor</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="nome_setor" placeholder="Nome do Setor" autofocus>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" data-dismiss="modal" class="btn btn-success" id="btn-cad-setor">Confirmar</button>
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="cadastrar-criterio" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Cadastro de Critério de Avaliação</h4>
+                        <div class="modal-body">
+                            <form class="form-horizontal" method="post">
+                                <div class="form-group ">
+                                    <label for="nome_criterio" class="col-sm-2 control-label t-ava">Critério</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control " id="nome_criterio" placeholder="Nome do Critério" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="desc_criterio" class="col-sm-2 control-label">Descrição</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="desc_criterio" class='form-control' rows='3' placeholder="Descrição do Critério"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group criterio_avaliacao">
+                                    <label for="" class=" control-label t-ava">Tipo de Avaliação</label>
+                                    <div class="col-sm-12">
+                                        <label for='1' class='radio-inline'><input type='radio' value='1' name='1'>Auto Avaliação</label>
+                                        <label for='2' class='radio-inline'><input type='radio' value='2' name='2'>90 Graus</label>
+                                        <label for='3' class='radio-inline'><input type='radio' value='3' name='3'>180 Graus</label>
+                                        <label for='4' class='radio-inline'><input type='radio' value='4' name='4'>360 Graus</label>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-success" id="btn-salvar-criterio" data-dismiss="modal">Confirmar</button>
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="cadastrar-avaliacao" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Cadastro Avaliação</h4>
+                        <div class="modal-body">
+
+                            <form class="form-horizontal">
+                                <div class="form-group ">
+                                    <label for="nome" class="col-sm-2 control-label ">Avaliação</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control " id="nome" placeholder="Nome do Critério">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descricao-funcao" class="col-sm-2 control-label">Descrição</label>
+                                    <div class="col-sm-10">
+                                        <textarea class='form-control' rows='3' placeholder="Descrição da Avaliação"></textarea>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-default">Confirmar</button>
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="sobre-autor" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4>Sobre o Projeto</h4>
+                            <p>
+                                Este projeto tem como finalidade apresentar uma aplicação para
+                                análise de desempenho de colaboradores em pequenas organizações,
+                                aproximando o ambiente de gestão à tecnologia, garantindo um acompanhamento online em qualquer parte do mundo que o gestor estiver e assim podendo analisar o desempenho de seus colaboradores utilizando diferentes técnicas de avaliação de desempenho.
+                            </p>
+                            <p>
+                                A aplicação foi desenvolvida por <strong>Hingo Sander Rocha Goulart</strong>, para o Trabalho de Conclusão de Curso para o curso de Sistemas de Informação da Universidade Federal do Rio Grande - FURG.
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="nova-auto-avaliacao" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Auto Avaliação</h4>
+                            <form action="" method="post">
+
+                                <div class="form-group">
+                                    <label for="auto-avaliacao-selecionar-setor">Setor</label>
+                                    <select class="form-control" id="auto-avaliacao-selecionar-setor"></select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="auto-avaliacao-colaborador">Colaboradores Avaliados</label>
+                                    <select class="form-control" id="auto-avaliacao-colaborador">
+                                        <option><span class='label label-default'>Selecione um setor antes</span></option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success p" id='btn-gerar-auto-avaliacao'>Gerar Avaliação</button>
+                            <a class="btn btn-primary " data-dismiss="modal" id="auto-avaliacao-close">Fechar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="nova-avaliacao-90" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Avaliação 90 Graus</h4>
+                            <form action="" method="post">
+
+                                <div class="form-group">
+                                    <label for="avaliacao-90-selecionar-setor">Setor</label>
+                                    <select class="form-control" id="avaliacao-90-selecionar-setor"></select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avaliacao-90-gestor">Gestor Avaliador</label>
+                                    <select class="form-control" id="avaliacao-90-gestor">
+                                        <option><span class='label label-default'>Selecione um setor antes</span></option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avaliacao-90-colaborador">Colaboradores Avaliados</label>
+                                    <select class="form-control" id="avaliacao-90-colaborador">
+                                        <option><span class='label label-default'>Selecione um gestor antes</span></option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success p" id='btn-gerar-avaliacao-90'>Gerar Avaliação</button>
+                            <a class="btn btn-primary " data-dismiss="modal" id="auto-avaliacao-close">Fechar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="nova-avaliacao-180" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Avaliação 180 Graus</h4>
+                            <form action="" method="post">
+
+                                <div class="form-group">
+                                    <label for="avaliacao-180-selecionar-setor">Setor</label>
+                                    <select class="form-control" id="avaliacao-180-selecionar-setor"></select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avaliacao-180-gestor">Gestor Avaliador</label>
+                                    <select class="form-control" id="avaliacao-180-gestor">
+                                        <option>Selecione um setor antes</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avaliacao-180-colaborador">Colaboradores Avaliados</label>
+                                    <select class="form-control" id="avaliacao-180-colaborador">
+                                        <option>Selecione um gestor antes</option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success p" id='btn-gerar-avaliacao-180'>Gerar Avaliação</button>
+                            <a class="btn btn-primary " data-dismiss="modal" id="auto-avaliacao-close">Fechar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="modal fade" id="nova-avaliacao-360" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Avaliação 360 Graus</h4>
+                            <form action="" method="post">
+
+                                <div class="form-group">
+                                    <label for="avaliacao-360-selecionar-setor">Setor</label>
+                                    <select class="form-control" id="avaliacao-360-selecionar-setor"></select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avaliacao-360-colaborador">Colaborador Avaliado</label>
+                                    <select class="form-control" id="avaliacao-360-colaborador">
+                                        <option>Selecione um gestor antes</option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" id='btn-gerar-avaliacao-360'>Gerar Avaliação</button>
+                            <a class="btn btn-primary " data-dismiss="modal" id="auto-avaliacao-close">Fechar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="modal fade" id="alterar-funcao" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="text-center">Alterar o Cargo</h4>
+                        <div class="modal-body">
+
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="setor" class="col-sm-3 control-label">Cargo atual</label>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" class="form-control " id="funcao-atual" placeholder="" disabled>
+
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="nome_funcao" class="col-sm-3 control-label">Cargo</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control " id="alt-nome-cargo" placeholder="Nome da Cargo">
+                                        <input type="text" id="alt-id-cargo">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setor" class="col-sm-3 control-label">Setor atual</label>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" class="form-control " id="setor-atual" placeholder="" disabled>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="setor" class="col-sm-3 control-label">Setor</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="recebe-novo-setor">
+                                            <option>Selecione uma opção</option>
+
+                                        </select>
+                                        <input type="text" id="id-setor">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descricao-funcao" class="col-sm-3 control-label">Descrição</label>
+                                    <div class="col-sm-9">
+                                        <textarea id="alt-descricao-funcao" class='form-control' rows='3' placeholder="Descrição do Cargo"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" data-dismiss="modal" class="btn btn-success" id="btn-alt-cargo">Confirmar</button>
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="alterar-setor">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Setor</h4>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group ">
+                                    <label for="alt-nome-setor" class="col-sm-2 control-label">Nome</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control " id="alt-nome-setor" placeholder="Nome do Setor"><input type="text" id="alt-id-setor">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" id="btn-altera-setor" data-dismiss="modal">Confirmar</button>
+                            <a class="btn btn-primary" data-dismiss="modal">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="alterar-criterio">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Alterar Critério</h4>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group ">
+                                    <label for="alt-nome-setor" class="col-sm-2 control-label">Critério</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control " id="alt-nome-criterio" placeholder="">
+                                        <input type="text" id="alt-id-criterio" class="hidden" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="alt-nome-setor" class="col-sm-2 control-label">Descrição</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control " id="alt-descricao-criterio" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" id="btn-alterar-criterio" data-dismiss="modal">Confirmar</button>
+                            <a class="btn btn-primary" data-dismiss="modal">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modal fade" id="alterar-usuario" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="text-center">Alterar Cadastro de Colaborador</h4>
+                        <div class="modal-body">
+
+                            <form class="form-horizontal">
+                                <div class="form-group ">
+                                    <label for="cad-nome" class="col-sm-3 control-label ">Nome</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control " id="alter-name" placeholder="Nome Completo">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="cad-cpf" class="col-sm-3 control-label ">CPF</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control " id="alter-cpf" placeholder="CPF">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cad-email" class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="alter-email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cad-tel" class="col-sm-3 control-label">Telefone</label>
+                                    <div class="col-sm-9">
+                                        <input type="tel" class="form-control" id="alter-tel" placeholder="Telefone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-3 control-label">Setor Atual</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="alter-setor-atual" placeholder="s" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setor-colaborador" class="col-sm-3 control-label">Setor</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="setor-colaborador"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-3 control-label">Cargo Atual</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="alter-funcao-atual" placeholder="s" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="funcao-colaborador" class="col-sm-3 control-label">Cargo</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="funcao-colaborador">
+
+                                            <option>Selecione um setor primeiro</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ativo-colaborador" class="col-sm-2 control-label">Ativo</label>
+                                    <div class="col-sm-3 text-left" id="ativo-colaborador">
+
+                                        <label for='s' class='radio-inline'>
+                                            <input type='radio' value='s' name="ativo" checked>Sim
+                                        </label>
+                                        <label for='n' class='radio-inline'>
+                                            <input type='radio' value='n' name="ativo">Não
+                                        </label>
+                                    </div>
+                                    <label for="perfil-colaborador" class="col-sm-2 control-label">Perfil</label>
+                                    <div class="col-sm-5" id="perfil-colaborador">
+                                        <label for='administrador' class='radio-inline'>
+                                            <input type='radio' value='administrador' name="perfil" id="adm">Administrador
+                                        </label>
+                                        <label for='usuario' class='radio-inline'>
+                                            <input type='radio' value='usuario' name="perfil" id="user">Usuário
+                                        </label>
+                                    </div>
+                                    <input type="text" class="form-control hidden" id="alter-id-colaborador" placeholder="">
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-success" id="btn-alterar-usuario" data-dismiss="modal">Confirmar</button>
+
+
+                            <a class="btn btn-primary" data-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="avaliacoes" id="realizar-auto-avaliacao" role="dialog">
+            <div class="">
+                <div class=" modal-content ">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Realizar Avaliação</h4>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group ">
+                                            <label for="setor-auto-avaliacao">Setor</label>
+                                            <strong>
+                                                <input type="text" id="setor-avaliacao" class="form-control" placeholder="" id="setor-avaliacao" disabled>
+                                            </strong>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group">
+                                            <label for="funcao-avaliacao">Cargo</label>
+                                            <strong>
+                                                <input type="text" id="funcao-avaliacao" class="form-control" placeholder="" disabled>
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-4">
+
+                                        <div class="form-group ">
+                                            <label for="tipo-avaliacao-realizada">Tipo de Avaliação</label>
+                                            <strong>
+                                                <input type="text" id="tipo-avaliacao-realizada" class="form-control" placeholder="" disabled>
+                                                <input type="text" id="id-avaliacao-gerada" class="hidden">
+                                                <input type="text" id="id-tipo-avaliacao-gerada" class="hidden">
+                                            </strong>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4 col-xs-4">
+
+                                        <div class="form-group">
+                                            <label for="avaliador-auto-avaliacao">Avaliador</label>
+                                            <strong>
+                                                <input type="text" id="avaliador-auto-avaliacao" class="form-control" placeholder="" disabled>
+                                            </strong>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4 col-xs-4">
+
+                                        <div class="form-group">
+                                            <label for="avaliado-auto-avaliacao">Avaliado</label>
+                                            <strong>
+                                                <input type="text" id="avaliado-auto-avaliacao" class="form-control" placeholder="" disabled>
+                                            </strong>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="" id="tabela-avaliacao">
+
+                                            <label class="">Tabela de Critérios</label>
+                                            <table id="criterios-avaliacao" class="table table-responsive table-bordered "></table>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="pull-left">
+                                <span>1 - <strong>Ruim</strong> </span> <span>2 - <strong>Bom</strong></span> <span>3 - <strong>Médio</strong></span> <span>4 - <strong>Excelente</strong></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success p" id='btn-salvar-avaliacao'>Confirmar Avaliação</button>
+                            <a class="btn btn-primary cancelar-avaliacao fechar">Cancelar</a>
+                            <!-- id='cancelar-avaliacao' -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="avaliacoes" id="consultar-avaliacao-individual-setor" role="dialog">
+            <div class="">
+                <div class="modal-content ">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Consultar Avaliações</h4>
+                            <form action="" method="post">
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group">
+                                            <label for="setor-avaliacao-realizada" class="col-sm-3 control-label">Setor</label>
+
+                                            <select class="form-control" id="setor-avaliacao-realizada"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group ">
+                                            <label for="cargo-avaliacao-realizada">Cargo</label>
+                                            <select class="form-control" id="cargo-avaliacao-realizada" disabled>
+                                                "
+                                                <option>Selecione um Setor antes</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group ">
+                                            <label for="colaborador-avaliacao-realizada">Colaborador</label>
+                                            <select class="form-control" id="colaborador-avaliacao-realizada" disabled>
+                                                "
+                                                <option>Selecione um Cargo antes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group ">
+                                            <label for="consulta-avaliacao-realizada">Tipo de Avaliação</label>
+                                            <input type="text" class="hidden" id="cpf-avaliacao"></input>
+                                            <select class="form-control" id="consulta-avaliacao-realizada" disabled>
+                                                "
+                                                <option><span class='label label-default'>Selecione um Colaborador ou Todos</span></option>
+                                            </select>
+                                            <input type="text" id="data-avaliacao-realizada" class="hidden">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="" id="tabela-avaliacao-realizada">
+
+
+                                <table id="itens-avaliacao-realizada" class="table table-responsive table-bordered "></table>
+
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="pull-left text-left">
+                                <div>
+                                    <label><strong> Data em que foi gerada a Avaliação: </strong></label>
+                                    <span id="consulta-data-avaliacao"></span>
+                                </div>
+                                <div>
+                                    <label><strong> Data em que foi realizada a Avaliação: </strong></label>
+                                    <span id="consulta-data-avaliacao-realizada"></span>
+                                </div>
+                            </div>
+
+                            <a class="btn btn-primary pull-right cancelar-avaliacao fechar">Fechar</a>
+                            <div class="text-center">
+                                <label><strong> Média da avaliação: </strong></label>
+                                <span id="media-avaliacao"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="avaliacoes" id="consultar-avaliacoes-acumuladas" role="dialog">
+            <div class="">
+                <div class="modal-content ">
+                    <div class="modal-header">
+
+                        <div class="modal-body">
+                            <h4 class="text-center">Consultar Avaliações</h4>
+                            <form action="" method="post">
+
+                                <div class="row">
+
+                                    <!--<div class="col-md-6 col-xs-6">
+
+                                        <div class="form-group ">
+                                            <label for="consulta-avaliacao-acumulada">Tipo de Avaliação</label>                     
+                                            <select class="form-control" id="consulta-avaliacao-acumulada">
+                                               
+                                                <option></option>
+                                            </select>
+                                            <input type="text" id="data-avaliacao-acumulada" class="hidden">
+                                        </div>
+
+                                    </div>-->
+
+                                    <div class="col-md-8 col-xs-8 select-date">
+
+                                        <div class="form-group">
+                                            <input type="date" id="begin" name="begin">
+
+
+                                            <input type="date" id="end" name="end" class="pull-right">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4 col-xs-4">
+
+                                        <button class="btn btn-primary" id="btn-consultar-avaliacoes">Consultar Avaliações</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                    </div>
+                                </div>
+
+                            </form>
+                            <div class="" id="tabela-avaliacao-realizada">
+
+                                <table id="itens-avaliacao-realizada" class="table table-responsive table-bordered "></table>
+
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <a class="btn btn-primary pull-right cancelar-avaliacao fechar">Fechar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="modal fade" id="trocar-senha" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Alterar Senha</h4>
+                    <div class="modal-body">
+
+                        <form action="alterar_senha.php" method="post" class="form-horizontal clearfix">
+                            <div class="form-group col-sm-12">
+                                <div class="col-sm-4">
+                                    <label for="nova-senha" class="control-label">Nova Senha</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control " id="nova-senha" placeholder="Insira a sua nova senha" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <div class="col-sm-4">
+                                    <label for="nova-senha-2" class="control-label">Repita Nova Senha</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control " id="nova-senha-2" placeholder="Insira novamente a sua nova senha" required>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-success" id="btn-alterar-senha">Confirmar</button>
+
+                        <a class="btn btn-primary" data-dismiss="modal">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modal fade" id="error-180" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>AVISO! Avaliação 180 graus</h4>
+                    <div class="modal-body">
+
+                     <p>
+
+                     </p>
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">Confirmar</button>
+
+                        <a class="btn btn-primary" data-dismiss="modal">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+
+        <div class="container">
+            <p class="navbar-text pull-left">Desenvolvido por Hingo Rocha</p>
+
+            <a href="#" data-toggle="modal" id="to-top" class="navbar-btn pull-right to-top"></a>
+
+            <a href="#sobre-autor" data-toggle="modal" class="navbar-btn pull-right about"></a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
+
